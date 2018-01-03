@@ -1,0 +1,14 @@
+import sys
+stack = []
+a=input()
+a.replace('\t','').replace('\n','').replace(' ','').replace("\r",'')
+for c in a.split():
+
+    if c in '+-*/':
+        i2 = stack.pop()
+        i1 = stack.pop()
+        stack.append(eval('%s'*3 % (i1,c,i2)))
+    else:
+        stack.append(c)
+stack[0]=int(stack[0])
+print(stack[0])
